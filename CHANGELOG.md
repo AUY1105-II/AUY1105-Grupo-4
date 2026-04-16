@@ -19,3 +19,8 @@ Todas las novedades significativas de este proyecto se documentarán en este arc
 
 -Modificación de archivos:
   -Estructura de archivo README.md
+
+
+### Eliminación
+
+- Eliminación de archivos en rama main, por carga de erronea en rama principal.
