@@ -12,3 +12,10 @@ Todas las novedades significativas de este proyecto se documentarán en este arc
   - providers.tf
   - README.md
   - variables.ft
+
+- Incorporación de pruebas mediante pipeline en archivo iac-pr.yaml
+
+### Cambios
+
+-Modificación de archivos:
+  -Estructura de archivo README.md
