@@ -13,35 +13,45 @@ module "vpc" {
   enable_vpn_gateway = true
 
   tags = {
-    Terraform = "true"
+    Terraform   = "true"
     Environment = "${var.environment}"
   }
 }
 
 
-module "web_server_sg" {
-  source = "terraform-aws-modules/security-group/aws//modules/http-80"
+resource "aws_security_group" "ec2_sg" {
+  name        = "${var.project_name}-${var.environment}-ec2-sg"
+  description = "EC2 SG"
+  vpc_id      = module.vpc.default_vpc_id
 
-  name        = "web-server"
-  description = "Security group for web-server with HTTP ports open within VPC"
-  vpc_id      = "vpc-12345678"
-
-  ingress_cidr_blocks = ["10.10.0.0/16"]
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = [var.my_ip]
+  }
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 }
 
 
 module "ec2_instance" {
-  source  = "terraform-aws-modules/ec2-instance/aws"
+  source = "terraform-aws-modules/ec2-instance/aws"
 
-  name = "single-instance"
+  name = "AUY1105-${var.project_name}-ec2"
+  ami  = ami-0ec10929233384c7f
 
   instance_type = "t2.micro"
-  key_name      = "user1"
+  key_name      = "vockey"
   monitoring    = true
-  subnet_id     = "subnet-eddcdzz4"
+  subnet_id     = module.vpc.public_subnets[0]
 
   tags = {
     Terraform   = "true"
-    Environment = "dev"
+    Environment = "${var.environment}"
   }
 }
