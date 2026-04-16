@@ -2,10 +2,10 @@
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
-  Name = "AUY1105-${var.project_name}-vpc"
+  name = "AUY1105-${var.project_name}-vpc"
   cidr = "10.1.0.0/16"
 
-  azs             = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
+  azs             = ["us-east-1a", "us-east-1b", "us-east-1c"]
   private_subnets = ["10.1.1.0/24", "10.1.2.0/24", "10.1.3.0/24"]
   public_subnets  = ["10.1.101.0/24", "10.1.102.0/24", "10.1.103.0/24"]
 
@@ -43,7 +43,7 @@ module "ec2_instance" {
   source = "terraform-aws-modules/ec2-instance/aws"
 
   name = "AUY1105-${var.project_name}-ec2"
-  ami  = ami-0ec10929233384c7f
+  ami  = "ami-0ec10929233384c7f"
 
   instance_type = "t2.micro"
   key_name      = "vockey"
