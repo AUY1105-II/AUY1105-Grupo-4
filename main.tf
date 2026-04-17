@@ -44,7 +44,7 @@ resource "aws_security_group" "ec2_sg" {
 
 module "ec2_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
-  version = "~> 5.6"
+  version = "~> 6.1"
 
   name = "AUY1105-${var.project_name}-ec2"
   ami  = "ami-0ec10929233384c7f"
