@@ -26,12 +26,14 @@ resource "aws_security_group" "ec2_sg" {
   vpc_id      = module.vpc.vpc_id
 
   ingress {
+    description = "Permitir SSH desde IP especifica autorizada"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = [var.my_ip]
   }
   egress {
+    description = "Permitir salida a internet para actualizaciones"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
