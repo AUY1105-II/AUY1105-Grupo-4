@@ -19,7 +19,7 @@ Repositorio del **Parcial 1** (AUY1105 — Infraestructura como código II): inf
 1. Copia variables de ejemplo y ajusta región y CIDR SSH permitido (**no** uses `0.0.0.0/0`; las políticas OPA y la rúbrica lo penalizan).
 
    ```bash
-   cp terraform.tfvars.example terraform.tfvars
+   cp terraform.tfvars.example.example terraform.tfvars.example
    ```
 
 2. Inicializa y valida:
