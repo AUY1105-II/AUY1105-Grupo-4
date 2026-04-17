@@ -104,41 +104,41 @@ Se incorporan validaciones locales de Terraform, OPA, TFLINT y Checkov.
 
 ### Creación de terraform
 
-![Creación de terraform](img/Captura desde 2026-04-17 18-26-35.png)
+![Creación de terraform](img/Captura%20desde%202026-04-17%2018-26-35.png)
 
 ### Conexión SSH denegada desde IP pública
 
-![SSH-deny](img/Captura desde 2026-04-17 18-28-22.png)
+![SSH-deny](img/Captura%20desde%202026-04-17%2018-28-22.png)
 
 ### Validación Checkov pass, con los tags indicados omitidos
 
-![Resultado-Checkov-local](img/Captura desde 2026-04-17 18-50-44.png)
+![Resultado-Checkov-local](img/Captura%20desde%202026-04-17%2018-50-44.png)
 
 ### Validación Tflint local
 
-![Tflint-local](img/Captura desde 2026-04-17 18-52-04.png)
+![Tflint-local](img/Captura%20desde%202026-04-17%2018-52-04.png)
 
 ### Validación OPA Local
 
-![OPA-local](img/Captura desde 2026-04-17 18-52-34.png)
+![OPA-local](img/Captura%20desde%202026-04-17%2018-52-34.png)
 
 ## Validación mediante pipeline
 
 ### Pipeline Ejecutar mediante Pull Request
 
-![pipeline-PR](img/Captura desde 2026-04-17 19-15-16.png)
+![pipeline-PR](img/Captura%20desde%202026-04-17%2019-15-16.png)
 
-![pipeline-PR2](img/Captura desde 2026-04-17 19-15-43.png) 
+![pipeline-PR2](img/Captura%20desde%202026-04-17%2019-15-43.png) 
 
 
 ### Validación TFlint Actions
 
-![TFLINT-Actions](img/Captura desde 2026-04-17 19-17-08.png)
+![TFLINT-Actions](img/Captura%20desde%202026-04-17%2019-17-08.png)
 
 ### Validación Checkov Actions
 
-![Checkov-Actions](img/Captura desde 2026-04-17 19-18-10.png)
+![Checkov-Actions](img/Captura%20desde%202026-04-17%2019-18-10.png)
 
 ### Validación de políticas OPA
 
-![OPA-Actions](img/Captura desde 2026-04-17 19-18-40.png)
+![OPA-Actions](img/Captura%20desde%202026-04-17%2019-18-40.png)
