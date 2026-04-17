@@ -97,3 +97,48 @@ El workflow **`.github/workflows/iac-pr.yml`** se dispara en **pull request** ha
 | 6 | **Checkov** | Escaneo de seguridad sobre el marco **terraform** del directorio actual; se excluye la carpeta **`policies/`** del análisis Terraform y se omiten comprobaciones concretas (`CKV_TF_1`, `CKV_AWS_24`, `CKV_AWS_382`, `CKV2_AWS_5`) alineadas al alcance del proyecto. |
 | 7 | **`terraform validate`** | Valida la configuración ya inicializada (coherencia con el **AWS provider 6.x** y los módulos descargados). |
 | 8 | **OPA** (instalación) y **`opa test policies/`** | Ejecuta las pruebas de las políticas **Rego** (requisito de políticas como código con tests automatizados). |
+
+## Validaciones locales 
+
+Se incorporan validaciones locales de Terraform, OPA, TFLINT y Checkov. 
+
+### Creación de terraform
+
+![Creación de terraform](img/Captura%20desde%202026-04-17%2018-26-35.png)
+
+### Conexión SSH denegada desde IP pública
+
+![SSH-deny](img/Captura%20desde%202026-04-17%2018-28-22.png)
+
+### Validación Checkov pass, con los tags indicados omitidos
+
+![Resultado-Checkov-local](img/Captura%20desde%202026-04-17%2018-50-44.png)
+
+### Validación Tflint local
+
+![Tflint-local](img/Captura%20desde%202026-04-17%2018-52-04.png)
+
+### Validación OPA Local
+
+![OPA-local](img/Captura%20desde%202026-04-17%2018-52-34.png)
+
+## Validación mediante pipeline
+
+### Pipeline Ejecutar mediante Pull Request
+
+![pipeline-PR](img/Captura%20desde%202026-04-17%2019-15-16.png)
+
+![pipeline-PR2](img/Captura%20desde%202026-04-17%2019-15-43.png) 
+
+
+### Validación TFlint Actions
+
+![TFLINT-Actions](img/Captura%20desde%202026-04-17%2019-17-08.png)
+
+### Validación Checkov Actions
+
+![Checkov-Actions](img/Captura%20desde%202026-04-17%2019-18-10.png)
+
+### Validación de políticas OPA
+
+![OPA-Actions](img/Captura%20desde%202026-04-17%2019-18-40.png)
