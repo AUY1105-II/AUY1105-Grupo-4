@@ -47,8 +47,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install checkov
 
-  - name: Run Checkov
-      run: checkov -d . --framework terraform --download-external-modules false --compact --skip-path policies --skip-check CKV_TF_1,CKV_AWS_24,CKV_AWS_382,CKV2_AWS_5
+      - name: Run Checkov
+        run: checkov -d . --framework terraform --download-external-modules false --compact --skip-path policies --skip-check CKV_TF_1,CKV_AWS_24,CKV_AWS_382,CKV2_AWS_5
 
       - name: Terraform validate
         run: terraform validate
