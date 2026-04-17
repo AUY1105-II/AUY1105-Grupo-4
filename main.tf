@@ -1,6 +1,7 @@
 # Modulo terraform vpc
 module "vpc" {
-  source = "terraform-aws-modules/vpc/aws"
+  source  = "terraform-aws-modules/vpc/aws"
+  version = "~> 5.0"
 
   name = "AUY1105-${var.project_name}-vpc"
   cidr = "10.1.0.0/16"
@@ -14,23 +15,25 @@ module "vpc" {
 
   tags = {
     Terraform   = "true"
-    Environment = "${var.environment}"
+    Environment = var.environment
   }
 }
 
 
 resource "aws_security_group" "ec2_sg" {
-  name        = "${var.project_name}-${var.environment}-ec2-sg"
+  name        = "AUY1105-${var.project_name}-${var.environment}-ec2-sg"
   description = "EC2 SG"
   vpc_id      = module.vpc.vpc_id
 
   ingress {
+    description = "Permitir SSH desde IP especifica autorizada"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = [var.my_ip]
   }
   egress {
+    description = "Permitir salida a internet para actualizaciones"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
@@ -40,7 +43,8 @@ resource "aws_security_group" "ec2_sg" {
 
 
 module "ec2_instance" {
-  source = "terraform-aws-modules/ec2-instance/aws"
+  source  = "terraform-aws-modules/ec2-instance/aws"
+  version = "~> 5.6"
 
   name = "AUY1105-${var.project_name}-ec2"
   ami  = "ami-0ec10929233384c7f"
@@ -53,6 +57,6 @@ module "ec2_instance" {
   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
   tags = {
     Terraform   = "true"
-    Environment = "${var.environment}"
+    Environment = var.environment
   }
 }
