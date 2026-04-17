@@ -22,7 +22,7 @@ module "vpc" {
 resource "aws_security_group" "ec2_sg" {
   name        = "${var.project_name}-${var.environment}-ec2-sg"
   description = "EC2 SG"
-  vpc_id      = module.vpc.default_vpc_id
+  vpc_id      = module.vpc.vpc_id
 
   ingress {
     from_port   = 22
@@ -50,6 +50,7 @@ module "ec2_instance" {
   monitoring    = true
   subnet_id     = module.vpc.public_subnets[0]
 
+  vpc_security_group_ids = [aws_security_group.ec2_sg.id]
   tags = {
     Terraform   = "true"
     Environment = "${var.environment}"
