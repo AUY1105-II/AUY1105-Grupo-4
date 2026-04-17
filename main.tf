@@ -1,6 +1,6 @@
 # Modulo terraform vpc
 module "vpc" {
-  source = "terraform-aws-modules/vpc/aws"
+  source  = "terraform-aws-modules/vpc/aws"
   version = "~> 5.0"
 
   name = "AUY1105-${var.project_name}-vpc"
@@ -41,7 +41,7 @@ resource "aws_security_group" "ec2_sg" {
 
 
 module "ec2_instance" {
-  source = "terraform-aws-modules/ec2-instance/aws"
+  source  = "terraform-aws-modules/ec2-instance/aws"
   version = "~> 5.6"
 
   name = "AUY1105-${var.project_name}-ec2"
